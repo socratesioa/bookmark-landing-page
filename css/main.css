@@ -1155,7 +1155,7 @@ header {
   position: absolute;
   width: 100%;
   height: 4px;
-  background-image: url("/images/bg-dots.svg");
+  background-image: url("../images/bg-dots.svg");
   background-repeat: repeat;
   bottom: -24px;
   left: 0;
