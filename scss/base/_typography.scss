@@ -1,0 +1,185 @@
+@use "../abstracts" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+$font-body: "Rubik", sans-serif;
+
+// DESKTOP
+
+$text-preset-1: (
+  family: $font-body,
+  size: 48px,
+  lineHeight: 1.1,
+  letterSpacing: 0,
+  weight: 500,
+);
+
+$text-preset-2: (
+  family: $font-body,
+  size: 32px,
+  lineHeight: 1.25,
+  letterSpacing: -0.1px,
+  weight: 500,
+);
+
+$text-preset-3: (
+  family: $font-body,
+  size: 20px,
+  lineHeight: 1.2,
+  letterSpacing: 0.25px,
+  weight: 500,
+);
+
+$text-preset-4: (
+  family: $font-body,
+  size: 18px,
+  lineHeight: 1.55,
+  letterSpacing: 0,
+  weight: 400,
+);
+
+$text-preset-5-light: (
+  family: $font-body,
+  size: 16px,
+  lineHeight: 2.25,
+  letterSpacing: 0.5px,
+  weight: 300,
+);
+
+$text-preset-5-regular: (
+  family: $font-body,
+  size: 16px,
+  lineHeight: 1.1,
+  letterSpacing: 0.5px,
+  weight: 400,
+);
+
+$text-preset-6-medium: (
+  family: $font-body,
+  size: 14px,
+  lineHeight: 2,
+  letterSpacing: 0.25px,
+  weight: 500,
+);
+
+$text-preset-6-regular: (
+  family: $font-body,
+  size: 14px,
+  lineHeight: 2,
+  letterSpacing: 0.25px,
+  weight: 400,
+);
+
+$text-preset-6-semibold: (
+  family: $font-body,
+  size: 14px,
+  lineHeight: 3,
+  letterSpacing: 5px,
+  weight: 600,
+);
+
+$text-preset-7: (
+  family: $font-body,
+  size: 10px,
+  lineHeight: 1.2,
+  letterSpacing: 0.25px,
+  weight: 500,
+);
+
+// MOBILE
+
+$text-preset-1-mobile: (
+  family: $font-body,
+  size: 30px,
+  lineHeight: 1.35,
+  letterSpacing: 0,
+  weight: 500,
+);
+
+$text-preset-2-medium-mobile: (
+  family: $font-body,
+  size: 15px,
+  lineHeight: 2,
+  letterSpacing: 0,
+  weight: 500,
+);
+
+$text-preset-2-regular-mobile: (
+  family: $font-body,
+  size: 15px,
+  lineHeight: 1.65,
+  letterSpacing: 0,
+  weight: 400,
+);
+
+$text-preset-2-light-mobile: (
+  family: $font-body,
+  size: 15px,
+  lineHeight: 2,
+  letterSpacing: 0,
+  weight: 300,
+);
+
+$text-preset-3-mobile: (
+  family: $font-body,
+  size: 12px,
+  lineHeight: 3,
+  letterSpacing: 5px,
+  weight: 500,
+);
+
+$text-preset-4-mobile: (
+  family: $font-body,
+  size: 10px,
+  lineHeight: 1.2,
+  letterSpacing: 0.25px,
+  weight: 400,
+);
+
+$mobile-nav-links: (
+  family: $font-body,
+  size: 20px,
+  lineHeight: 17px,
+  letterSpacing: 2.31px,
+  weight: 400,
+);
+
+$browser-heading: (
+  family: $font-body,
+  size: 24px,
+  lineHeight: 2,
+  letterSpacing: 0,
+  weight: 500,
+);
+
+body {
+  font-family: $font-body;
+  @include text-preset($text-preset-2-regular-mobile);
+  @include respond(medium, min) {
+    @include text-preset($text-preset-4);
+  }
+}
+
+h1 {
+  @include text-preset($text-preset-1-mobile);
+  color: $clr-body-text-dark;
+  @include respond(medium, min) {
+    @include text-preset($text-preset-1);
+  }
+}
+
+h2 {
+  @include text-preset($text-preset-1-mobile);
+  color: $clr-body-text-dark;
+  @include respond(medium, min) {
+    @include text-preset($text-preset-2);
+  }
+}
+
+h3 {
+  @include text-preset($browser-heading);
+  color: $clr-body-text-dark;
+  @include respond(medium, min) {
+    @include text-preset($text-preset-3);
+  }
+}

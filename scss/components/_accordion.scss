@@ -1,0 +1,90 @@
+@use "../abstracts" as *;
+@use "../base/typography" as typo;
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  gap: 33px;
+  @include respond(medium, min) {
+    position: relative;
+    padding-top: 16px;
+  }
+}
+
+.accordion::before {
+  @include respond(medium, min) {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 0;
+    left: 0;
+    background-color: hsla(229, 31%, 21%, 0.15);
+  }
+}
+
+.accordion-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  @include text-preset(typo.$text-preset-2-regular-mobile);
+  color: $clr-body-text-dark;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  @include respond(medium, min) {
+    @include text-preset(typo.$text-preset-4);
+    padding-right: 24px;
+  }
+}
+
+.accordion-trigger:hover {
+  color: $clr-red;
+}
+
+.accordion-trigger:focus-visible {
+  outline-offset: 4px;
+  outline: 2px solid $clr-accent;
+}
+
+.accordion-trigger .arrow {
+  color: $clr-accent;
+  transition: transform 0.3s ease;
+}
+
+.accordion-trigger[aria-expanded="true"] .arrow {
+  transform: rotate(180deg);
+  color: $clr-red;
+}
+
+.arrow svg {
+  width: 16px;
+  height: 8px;
+}
+
+.accordion-item {
+  position: relative;
+}
+
+.accordion-item::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -16px;
+  left: 0;
+  background-color: hsla(229, 31%, 21%, 0.15);
+}
+
+.accordion-panel {
+  padding-top: 16px;
+  @include text-preset(typo.$text-preset-2-light-mobile);
+  @include respond(medium, min) {
+    @include text-preset(typo.$text-preset-5-light);
+  }
+}

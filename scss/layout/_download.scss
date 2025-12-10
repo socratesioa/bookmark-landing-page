@@ -1,0 +1,140 @@
+@use "../abstracts" as *;
+@use "../base/typography" as typo;
+
+.download {
+  display: grid;
+  gap: 40px;
+  margin-bottom: 128px;
+  @include respond(medium, min) {
+    gap: 64px;
+    max-width: 904px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 140px;
+    padding: 0 77px;
+  }
+  @include respond(large, min) {
+    padding: 0;
+    margin-bottom: 161px;
+  }
+}
+
+.download-intro {
+  display: grid;
+  gap: 16px;
+  padding: 0 32px;
+  text-align: center;
+  @include respond(medium, min) {
+    padding: 0 36.5px;
+  }
+  @include respond(large, min) {
+    padding: 0;
+    max-width: 541px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.download-cards-container {
+  padding: 0 47.5px;
+  display: grid;
+  gap: 40px;
+  @include respond(medium, min) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 0;
+  }
+  @include respond(large, min) {
+    gap: 32px;
+    align-items: start;
+  }
+}
+
+.browser-article {
+  padding: 26px 0 32px 0;
+  display: grid;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px -5px hsla(231, 58%, 55%, 0.05);
+  @include respond(medium, min) {
+    padding: 31px 0 24px 0;
+  }
+  @include respond(large, min) {
+    padding: 32px 0;
+  }
+}
+
+.browser-img {
+  justify-self: center;
+  @include respond(medium, min) {
+    width: 71px;
+    height: auto;
+  }
+  @include respond(large, min) {
+    width: 100px;
+  }
+}
+
+.browser-text {
+  display: grid;
+  gap: 8px;
+  margin-top: 32px;
+  margin-bottom: 52px;
+  position: relative;
+  @include respond(medium, min) {
+    margin-top: 16px;
+    margin-bottom: 36px;
+  }
+  @include respond(large, min) {
+    margin-top: 32px;
+    margin-bottom: 52px;
+  }
+}
+
+.browser-text p {
+  @include respond(medium, min) {
+    @include text-preset(typo.$text-preset-6-regular);
+  }
+  @include respond(large, min) {
+    @include text-preset(typo.$text-preset-6-medium);
+  }
+}
+
+.browser-text::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-image: url("/images/bg-dots.svg");
+  background-repeat: repeat;
+  bottom: -24px;
+  left: 0;
+  @include respond(medium, min) {
+    bottom: -16px;
+  }
+  @include respond(large, min) {
+    bottom: -24px;
+  }
+}
+
+.download-btn {
+  justify-self: center;
+  @include respond(medium, min) {
+    padding: 3px 8px;
+  }
+  @include respond(large, min) {
+    padding: 10px 35px;
+  }
+}
+
+.firefox {
+  @include respond(large, min) {
+    margin-top: 40px;
+  }
+}
+
+.opera {
+  @include respond(large, min) {
+    margin-top: 80px;
+  }
+}

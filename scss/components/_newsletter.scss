@@ -1,0 +1,95 @@
+@use "../abstracts" as *;
+@use "../base/typography" as typo;
+
+.newsletter-form {
+  display: grid;
+  gap: 16px;
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+  @include respond(medium, min) {
+    grid-template-columns: 300px 1fr;
+    align-items: start;
+    max-width: unset;
+  }
+}
+
+.input-group {
+  position: relative;
+}
+
+.error-icon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.error-icon.active {
+  visibility: visible;
+}
+
+input {
+  width: 100%;
+  background-color: $clr-white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  @include text-preset(typo.$text-preset-2-regular-mobile);
+  color: $clr-body-text-dark;
+  padding: 11.5px 16px;
+}
+
+input::placeholder {
+  color: hsla(0, 0%, 0%, 0.25);
+}
+
+input:focus-visible {
+  outline-offset: 2px;
+  outline: 2px solid $clr-secondary-btn;
+}
+
+.input-error {
+  background-color: $clr-red;
+  border: 2px solid $clr-red;
+  border-radius: 2px solid $clr-red;
+  border-radius: 5px;
+}
+
+.error-message {
+  display: block;
+  @include text-preset(typo.$text-preset-4-mobile);
+  font-style: italic;
+  color: $clr-white;
+  text-align: left;
+  padding: 4px 8px;
+}
+
+.toast {
+  background-color: $clr-accent;
+  color: $clr-white;
+  display: none;
+  position: fixed;
+  z-index: 4000;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 1440px;
+  width: 100%;
+}
+
+.toast.visible {
+  display: block;
+}
+
+.toast-content {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  @include respond(medium, min) {
+    padding: 32px 24px;
+    justify-content: center;
+  }
+}

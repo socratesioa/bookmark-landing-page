@@ -1,0 +1,131 @@
+@use "../abstracts" as *;
+@use "../base/typography" as typo;
+
+.nav-container {
+  display: none;
+  @include respond(large, min) {
+    display: block;
+  }
+}
+
+.primary-nav ul {
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 49px;
+  text-align: center;
+  padding-top: 24px;
+  @include respond(large, min) {
+    flex-direction: row;
+    gap: 48px;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+.primary-nav ul::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  top: 0;
+  background-color: hsla(0, 0%, 100%, 0.15);
+}
+
+.primary-nav ul li {
+  position: relative;
+}
+
+.primary-nav ul li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: -24px;
+  background-color: hsla(0, 0%, 100%, 0.15);
+}
+
+.primary-nav ul li:last-child::after {
+  display: none;
+  content: none;
+}
+
+.nav-container.active {
+  padding: 40px 32px 48px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: fixed;
+  inset: 0;
+  background: hsla(229, 31%, 21%, 0.95);
+  z-index: 1;
+  overflow-y: auto;
+  @include respond(medium, min) {
+    padding: 40px 80px 48px 80px;
+  }
+}
+
+.mobile-nav-header-slot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-nav-social-slot {
+  justify-items: center;
+  margin-top: auto;
+}
+
+.mobile-nav-social-slot .social {
+  gap: 40px;
+}
+
+.nav-link {
+  color: $clr-white;
+  text-decoration: none;
+  text-transform: uppercase;
+  @include text-preset(typo.$mobile-nav-links);
+  @include respond(large, min) {
+    @include text-preset(typo.$text-preset-6-regular);
+    color: $clr-body-text-dark;
+    transform: color 0.3s ease-out;
+  }
+}
+
+.nav-link:hover {
+  @include respond(large, min) {
+    color: $clr-red;
+  }
+}
+
+.footer-nav ul {
+  list-style: none;
+  display: grid;
+  gap: 24px;
+  justify-items: center;
+  @include respond(medium, min) {
+    grid-template-columns: repeat(3, auto);
+  }
+  @include respond(large, min) {
+    justify-self: start;
+    gap: 48px;
+  }
+}
+
+.footer-link {
+  @include text-preset(typo.$text-preset-2-regular-mobile);
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $clr-white;
+  transition: color 0.3s ease-out;
+  @include respond(large, min) {
+    @include text-preset(typo.$text-preset-6-regular);
+  }
+}
+
+.footer-link:hover {
+  color: $clr-red;
+}

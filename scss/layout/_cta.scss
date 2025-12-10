@@ -1,0 +1,41 @@
+@use "../abstracts" as *;
+@use "../base/typography" as typo;
+
+.cta {
+  background-color: $clr-accent;
+  padding: 49px 32px;
+  @include respond(medium, min) {
+    padding: 56px 0 78px 0;
+  }
+}
+
+.cta-container {
+  display: grid;
+  gap: 32px;
+  text-align: center;
+  @include respond(medium, min) {
+    max-width: 442px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.cta-text {
+  display: grid;
+  @include respond(medium, min) {
+    gap: 24px;
+  }
+}
+
+.cta-text h2 {
+  color: $clr-white;
+}
+
+.cta-text span {
+  color: $clr-white;
+  @include text-preset(typo.$text-preset-3-mobile);
+  text-transform: uppercase;
+  @include respond(medium, min) {
+    @include text-preset(typo.$text-preset-6-semibold);
+  }
+}

@@ -1,0 +1,40 @@
+@use "../abstracts" as *;
+
+.logo-text {
+  color: $clr-body-text-dark;
+}
+
+.logo-text.active {
+  color: $clr-white;
+}
+
+.logo-circle {
+  color: $clr-accent;
+}
+
+.logo-circle.active {
+  color: $clr-white;
+}
+
+.logo-circle-inner {
+  color: $clr-white;
+}
+
+.logo-circle-inner.active {
+  color: hsla(229, 31%, 21%, 0.95);
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 375 / 300;
+  @include respond(medium, min) {
+    aspect-ratio: 768 / 486;
+  }
+  @include respond(large, min) {
+    aspect-ratio: 734 / 486;
+    width: 734px;
+    height: 486px;
+    margin-left: 32px;
+  }
+}

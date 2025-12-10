@@ -1,0 +1,182 @@
+@use "../abstracts" as *;
+@use "../base/typography" as typo;
+
+.hamburger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  @include respond(large, min) {
+    display: none;
+  }
+}
+
+.nav-btn {
+  @include text-preset(typo.$mobile-nav-links);
+  display: block;
+  color: $clr-white;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid $clr-white;
+  border-radius: 5px;
+  padding: 15.5px 0;
+  @include respond(large, min) {
+    display: inline-flex;
+    @include text-preset(typo.$text-preset-6-regular);
+    background-color: $clr-red;
+    padding: 6px 32px;
+    border: 2px solid $clr-red;
+    box-shadow: 0 8px 8px -4px hsla(231, 58%, 55%, 0.05);
+    transition: color 0.3s ease-out, border-color 0.3s ease-out,
+      background-color 0.3s ease-out;
+  }
+}
+
+.nav-btn:hover {
+  @include respond(large, min) {
+    background-color: $clr-white;
+    color: $clr-red;
+    border: 2px solid $clr-red;
+  }
+}
+
+.nav-btn:focus-visible {
+  @include respond(large, min) {
+    outline-offset: 2px;
+    outline: 2px solid $clr-red;
+  }
+}
+
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  padding: 7px 12.5px;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0 8px 8px -4px hsla(231, 58%, 55%, 0.05);
+  @include text-preset(typo.$text-preset-2-medium-mobile);
+  transition: color 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease;
+  @include respond(medium, min) {
+    @include text-preset(typo.$text-preset-6-medium);
+  }
+}
+
+.primary-btn {
+  border: 2px solid $clr-accent;
+  background-color: $clr-accent;
+  color: $clr-white;
+}
+
+.primary-btn:hover {
+  background-color: transparent;
+  color: $clr-accent;
+  border: 2px solid $clr-accent;
+}
+
+.primary-btn:focus-visible {
+  outline-offset: 2px;
+  outline: 2px solid $clr-accent;
+}
+
+.secondary-btn {
+  border: 2px solid $clr-secondary-btn;
+  background-color: $clr-secondary-btn;
+  color: $clr-body-text-dark;
+}
+
+.secondary-btn:hover {
+  border: 2px solid $clr-secondary-btn-hover;
+  background-color: transparent;
+  color: hsla(228, 12%, 41%, 0.75);
+}
+
+.secondary-btn:focus-visible {
+  outline-offset: 2px;
+  outline: 2px solid $clr-secondary-btn-hover;
+}
+
+.submit-btn {
+  background-color: $clr-red;
+  color: $clr-white;
+  @include text-preset(typo.$text-preset-2-medium-mobile);
+  padding: 7px;
+  border: 2px solid $clr-red;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: $clr-white;
+  color: $clr-red;
+}
+
+.submit-btn:focus-visible {
+  outline-offset: 2px;
+  outline: 2px solid $clr-red;
+}
+
+.feature-btn {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  @include text-preset(typo.$text-preset-2-regular-mobile);
+  color: hsla(229, 31%, 21%, 0.75);
+  position: relative;
+  transition: color 0.3s ease;
+  @include respond(medium, min) {
+    @include text-preset(typo.$text-preset-5-regular);
+  }
+}
+
+.feature-btn:hover {
+  color: $clr-red;
+}
+
+.feature-btn:focus-visible {
+  outline-offset: 4px;
+  outline: 2px solid $clr-secondary-btn-hover;
+  border-radius: 5px;
+}
+
+.feature-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: hsla(231, 58%, 55%, 0.2);
+  bottom: -16px;
+  left: 0;
+  @include respond(medium, min) {
+    bottom: -24px;
+  }
+}
+
+.feature-btn[aria-selected="true"] {
+  color: $clr-body-text-dark;
+  position: relative;
+}
+
+.feature-btn[aria-selected="true"]::before {
+  content: "";
+  position: absolute;
+  width: 163px;
+  height: 4px;
+  background-color: $clr-red;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  @include respond(medium, min) {
+    width: 100%;
+    bottom: -24px;
+  }
+}

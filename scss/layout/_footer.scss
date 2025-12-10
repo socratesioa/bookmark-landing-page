@@ -1,0 +1,57 @@
+@use "../abstracts" as *;
+@use "../base/typography" as typo;
+
+footer {
+  background-color: $clr-footer-bg;
+  padding: 33px;
+  @include respond(medium, min) {
+    padding: 30px 80px;
+  }
+  @include respond(large, min) {
+    padding: 30px 30px;
+  }
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  @include respond(medium, min) {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    gap: auto;
+  }
+  @include respond(large, min) {
+    grid-template-columns: auto 1fr auto;
+    justify-content: unset;
+    gap: 64px;
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.social {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  @include respond(small, min) {
+    gap: 24px;
+  }
+  @include respond(large, min) {
+    justify-self: end;
+  }
+}
+
+.social-link {
+  color: $clr-white;
+  transition: color 0.3s ease-out;
+}
+
+.social-link:hover {
+  color: $clr-red;
+}

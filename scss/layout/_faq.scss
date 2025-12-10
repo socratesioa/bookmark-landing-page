@@ -1,0 +1,28 @@
+@use "../abstracts" as *;
+@use "../base/typography" as typo;
+
+.faq {
+  padding: 0 32px;
+  margin-bottom: 128px;
+  display: grid;
+  gap: 56px;
+  @include respond(medium, min) {
+    padding: 0;
+    max-width: 540px;
+    margin: 0 auto;
+    margin-bottom: 158px;
+  }
+  @include respond(large, min) {
+    margin-bottom: 177px;
+  }
+}
+
+.faq .primary-btn {
+  justify-self: center;
+}
+
+.faq-intro {
+  display: grid;
+  gap: 16px;
+  text-align: center;
+}
